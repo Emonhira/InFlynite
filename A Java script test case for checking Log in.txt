@@ -1,0 +1,7 @@
+phantom.test.root = "http://localhost/"     # or whatever your testing env's root
+
+phantom.test.add "inFlynite login", ->       # this adds a test
+  @get '/LoginPage', ->                 # relative to the previous root
+    @body.click '#login-btn'
+    @assertLocation "http://www.inFlynite.com"
+    @succeed() 
